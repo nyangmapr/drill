@@ -31,7 +31,7 @@
   <name>contrib/hive-storage-plugin/hive-exec-shaded</name>
 
   <properties>
-    <hive.version>0.13.1</hive.version>
+    <hive.version>1.0.0</hive.version>
   </properties>
 
   <dependencies>
@@ -171,6 +171,8 @@
                   <include>com.twitter:parquet-jackson</include>
                   <include>com.twitter:parquet-encoding</include>
                   <include>com.twitter:parquet-generator</include>
+                  <include>org.apache.calcite:calcite-core</include>
+                  <include>org.apache.calcite:calcite-avatica</include>
                 </includes>
               </artifactSet>
               <createDependencyReducedPom>false</createDependencyReducedPom>
@@ -187,6 +189,18 @@
                 <relocation>
                   <pattern>org.apache.commons.codec.</pattern>
                   <shadedPattern>hive.org.apache.commons.codec.</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>net.hydromatic.</pattern>
+                  <shadedPattern>hive.net.hydromatic.</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>org.eigenbase.</pattern>
+                  <shadedPattern>hive.org.eigenbase.</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>org.apache.calcite.</pattern>
+                  <shadedPattern>hive.org.apache.calcite.</shadedPattern>
                 </relocation>
               </relocations>
             </configuration>
